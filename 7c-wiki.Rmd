@@ -1,0 +1,317 @@
+---
+title: "ki Sprint 7C report out"
+author: "Jade Benjamin-Chung"
+date: "6/5/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE)
+```
+
+## Background detail
+**Stunting is Common in LMICs**
+
+Stunting (height-for-age Z < -2) by age 24 months is common in LMICs and is associated with a range of poor outcomes later in life. Linear growth is thought to be a cumulative marker of a range of nutritional and infectious insults during the first 1000 days.
+
+**Research Efforts to-date**
+
+There is an abundance of cross-sectional research that has focused on the geographic distribution of stunting and characteristics associated with it (e.g., through demographic and health surveys). Although it is assumed that stunting prevalence is a reasonable approximation of cumulative incidence, to our knowledge this has not been verified though large-scale studies across diverse cohorts. Effects of WASH and nutritional interventions have heretofore been null or modest, and far from sufficient to address the majority of stunting in many lower-income populations.
+
+## Motivation
+The unprecedented collection and standardization of individual participant data on GHAP provides a unique opportunity to summarize broad patterns in stunting and characteristics most strongly associated with it. Individual participant data from randomized nutritional intervention trials provides the unique opportunity to examine effect modification, which would not be possible in standard meta-analyses based on aggregate effect estimates.
+
+## Dataset list
+* CMC Vellore Birth Cohort 2002
+* CMIN: Child Malnutrition and Infection Network
+* COHORTS (Guatemala, Philippines, India): Consortium of Health-Orientated Research in Transitioning Societies
+* CONTENT: Evaluation and Control of Neglected Mucosal Enteric Infections in Childhood
+* EE: Study of Biomarkers for Environmental Enteropathy
+* GMS-Nepal: Growth Monitoring Study, Nepal
+* GBSC: Longitudinal study of BSC in Guatemala
+* iLiNS-Zinc Study: Effect of small-quantity Lipid-based Nutrient Supplements on growth, stunting, and wasting in young children: cluster-randomized trial
+* IRC: Vellore Crypto Study - Birth cohort study of Cryptosporidium infection in children
+* JiVitA-3 Study: Impact of antenatal multiple micronutrient supplementation on infant mortality
+* JiVitA-4 Study: Effect of fortified complementary food supplementation on child growth in rural Bangladesh: a cluster-randomized trial
+* MRC Kenaba: Longitudinal evaluation of the causal link between nutritional intake, physical and cognitive growth and development, and health
+* LCN5: Lungwena Child Nutrition Intervention Study 5 - A single-centre, randomised, single-blind, parallel group clinical trial in rural Malawi, testing the growth promoting effect of long-term complementary feeding of infants with a high-energy, micronutrient fortified spread
+* MAL-ED Study (Bangladesh,  India, Nepal, Peru, South Africa, Tanzania): Global study of enteropathy and its effects on anthropometry from birth through age 2 years
+* NIH Birth: NIH-Birth Cohort Study
+* NIH-Crypto: Bangladesh NIH Cryptosporidium Cohort Study 
+* PROBIT Study: Promotion of Breast Feeding Interventional Trial
+* PROVIDE Study: Performance of Rotavirus and Oral Polio Vaccines in Developing Countries
+* Respak: Respiratory Pathogens Birth Cohort - Characterization of endemic respiratory pathogens in urban pregnant women and newborns
+* SAS-CompFeed: Cluster randomized trial of the promotion of optimal complementary feeding practices
+* SAS-FoodSuppl: Randomized trial: effect of feeding a food supplement to infants on weight gain
+* Tanzania Child 2: Zinc and micronutrients
+* ZVITAMBO: Study of a Single Dose of Vitamin A to Prevent Vertical and Horizontal Transmission of HIV
+
+## Data description
+### Cohort inclusion criteria: 
+* Studies that could contribute to the analysis include all longitudinal cohorts with anthropometric measurements that have contributed individual participant data to GHAP. From the set of 86 longitudinal cohorts, those will be eligible for inclusion in the stunting analyses if they meet the following criteria:
+
+1. Were conducted in low- or middle-income countries
+    * Rationale: target population for inference
+&nbsp;
+2. Measured length between birth and age 24 months
+    * Rationale: target population for inference (first 1000 days)
+&nbsp;
+3. Did not restrict enrollment to acutely ill children (e.g., only children presenting to hospital with acute diarrhea).
+    * Rationale: We are interested in descriptive analyses of the general population and not only children in specific subgroups.
+&nbsp;
+4. Enrolled at least 200 children
+    * Rationale: Stunting incidence is sufficiently rare that we want to ensure we have sufficient information to estimate it within each individual cohort.
+&nbsp;
+5. Collected anthropometry measurements at least every 3 months (descriptive analyses). 
+    * Rationale: We are interested in describing whether the incidence and prevalence over the course of the first two years of life differs at these different time points.  
+    
+Note: For objective 2, we originally planned to include studies with measurement every 6 months in the risk factor analyses, but results in this report out only include studies with measurement at least every 3 months. 
+
+## Outcome variables
+- Point prevalence of stunting
+- Cumulative incidence of stunting 
+- Stunting incidence rate
+- Mean age of stunting onset 
+- Stunting recovery (“catch up growth”) 
+- Stunting duration
+
+## Predictor Variables
+We included a broad set of individual-, maternal-, and household-level characteristics. Many characteristics do not change over time and are static -- those that do change over time are marked with an asterisk (*).
+
+**Child characteristics **
+
+- Sex
+- Gestational age
+- Calendar month of birth
+- Birth weight (make sure this is taken at =<72 h or =<48 h or some such criteria)
+- Birth order
+- Delivery location
+- Delivery method (C-section vs. live birth)
+- Stunted at study enrollment or birth
+
+**Maternal characteristics**
+
+- Weight
+- Height
+- Age
+- Education
+- Unmarried
+- Breast or bottle feeding 
+- Total duration of breastfeeding
+- Maternal BMI (measured prior to pregnancy)
+
+**Paternal characteristics**
+
+- Age
+- Education
+- Height
+- BMI
+
+**Household characteristics**
+
+- Asset based wealth index
+- USAID Household Food Insecurity Access Scale (HFIAS) category or FANTA scale
+- Floor/Roof material
+- Drinking water treatment
+- Number of children <5 in the household
+- Number of individuals in the household
+- Number of rooms in household
+
+**Other characteristics**
+
+- Calendar month of measurement (seasonality)*
+
+**Risk factors that we plan to include in Sprint 7D**
+
+We excluded the following risk factors from the current sprint and plan to include them in Sprint 7D. In the initial covariate coding using a unified set of rules for defining improved sanitation or safe water, some studies had an unrealistically high or low prevalence of WASH indicators. Additional time is needed to assess if this is a limitation of the contributed data, or to see if we need study-specific rules or to check the raw contributed data for additional informative variables. For breastfeeding practice indicators, we are still working with Vishak and his team to find the right set of variables that balance having enough information to code indicators of recommended practice with sufficient frequency of measurement across studies. We expect that we can finalize these variables to include in the adjusted risk factor analysis in June.
+
+- Improved sanitation (WHO Joint Monitoring program definition)
+- Improved water source (WHO Joint Monitoring program definition)
+- Breastfeeding frequency, exclusivity, and early initiation
+- Current or recent diarrhea
+- Cumulative days of diarrhea (longitudinal prevalence) *
+
+## Methods
+
+- We calculated point prevalence, cumulative incidence, and incidence rates within additional age strata at 3 and 9 months. We are also presenting cohort-specific results for these outcomes. 
+
+- We calculated recovery from stunting at different ages and compared LAZ at the onset of stunting and the onset of recovery. 
+
+## Methods detail
+### Outcome definitions
+**Mean age of stunting onset** will be defined as the mean age in days at the time of each child’s first measurement of LAZ < -2. Only children with an incident episode of stunting prior to age 24 months will be included in this measurement. We will estimate this within monthly cohorts.
+
+**Stunting recovery (“catch up growth”)** will be defined as a LAZ change from below to -2 or greater among children who are currently stunted or severely stunted with at least two consecutive measurements greater than or equal to -2. We will estimate stunting reversal by each age of interest and define stunting as reversed if a child’s LAZ measurements change from < -2 to >= -2 by that age with two consecutive LAZ measurements < -2, ignoring any changes in LAZ at future older ages. Children will only be considered “at risk” for reversal after their LAZ falls below -2 for at least two consecutive measurements. 
+
+**Stunting duration** will be estimated by counting the whole months between the first measurement of LAZ < -2 and the first measurement of LAZ $\geq$ -2 within an individual child among children who were stunted prior to age 24 months. We will only measure this outcome in studies with at least monthly measurement to reduce measurement error from interval censoring. 
+
+### Risk factor analyses
+We categorized continuous risk factors using two methods. For risk factors with pre-established standard categories, we defined categories using those standards (e.g., BMI, birthweight). For socioeconomic variables with absolute values that may vary substantially between countries, we defined variables based on country-specific quartiles of the observed distributions (e.g., household wealth). 
+
+We will estimated cohort-specific and pooled prevalence ratios (PRs) and cumulative incidence ratios (CIRs)  using random effects models fit with restricted maximum likelihood estimation. Unadjusted PRs and CIRs between the reference level of each exposure and comparison levels were estimated using targeted maximum likelihood estimation. This report presents unadjusted bivariate analyses; we will conduct analyses adjusting for covariates in a future sprint. We estimated influence curve-based, clustered standard errors to account for repeated measures assuming that the children were the independent units of analysis.
+
+## Results detail
+
+### Objective 1: Descriptive epidemiology of linear growth faltering stunting
+
+#### 1a. Point prevalence - pooled (Update from Sprint 7B)
+
+We updated the pooled point prevalence to stratify by additional age groups (3 and 9 months). The overall pattern is the same as we reported in the last sprint -- point prevalence increases steadily and plateaus at 18-24 months. 
+```{r pp-pool, echo=FALSE, out.width="1000px", out.height="500px"}
+include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-ptprev-pool.pdf")
+```
+
+#### 1a. Point prevalence - stratified by study (Update from Sprint 7B)
+
+The point prevalence stratified by study cohort reveal similar patterns overall. In a few studies, the point prevalence stays relatively flat from birth to 24 months, but overall there are increases in point prevalence by age until 18-24 months. Patterns were similar across geographic region. 
+```{r pp-af, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-ptprev-africa.pdf")
+```
+
+```{r pp-as, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-ptprev-asia.pdf")
+```
+
+```{r pp-la, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-ptprev-latamer-eur.pdf")
+```
+
+#### 1a. Cumulative incidence - pooled (Update from Sprint 7B)
+
+We updated the pooled cumulative incidence to stratify by additional age groups (3 and 9 months). The overall pattern is the same as we reported in the last sprint -- cumulative incidence increases steadily from birth to 24 months. One quarter of children experience their first incidence of stunting within the first 3 months of life and one third experience their first incidence between 3 and 6 months. By 24 months, 59% children had ever been stunted. 
+```{r ci-pool, echo=FALSE, out.width="1000px", out.height="500px"}
+include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-cuminc-pool.pdf")
+```
+
+#### 1a. Cumulative incidence  - stratified by study (Update from Sprint 7B)
+
+The cumulative incidence stratified by study cohort reveal similar patterns overall with cumulative incidence increasing steadily between birth and 24 months. The cumulative incidence was higher across all ages in most studies conducted in Asia compared to other regions. 
+```{r ci-af, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-cuminc-africa.pdf")
+```
+
+```{r ci-as, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-cuminc-asia.pdf")
+```
+
+```{r ci-la, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-cuminc-latamer-eur.pdf")
+```
+
+
+#### 1a. Incidence rate - pooled (Update from Sprint 7B)
+We updated the pooled incidence rate to stratify by age 3 months in addition to the previous age groups. In this new stratification, the pooled incidence rate is now highest in the age range from 2 days to 3 months and is relatively flat from 3-24 months. These results suggest that the first three months rather than the first six months may be the critical window for intervention rather than the period up to six months as we discussed in our last report out. 
+```{r ir-pool, echo=FALSE, out.width="1000px", out.height="500px"}
+include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-inc-pool.pdf")
+```
+
+#### 1a. Incidence rate - stratified by study (Update from Sprint 7B)
+Cohort-specific incidence rates reveal similar patterns in some studies and a pattern of more consistent incidence rates in other studies. The incidence rates in studies conducted in Asia were higher across all ages and were particularly high in the 2 day to 3 month window, reaching incidence rates as high as 17 per 1,000 child-days in the EE-Pakistan study.
+
+```{r ir-af, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-inc-africa.pdf")
+```
+
+```{r ir-as, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-inc-asia.pdf")
+```
+
+```{r ir-la, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-inc-latamer-eur.pdf")
+```
+
+
+#### 1a. What is the mean age of stunting onset?
+The plots below show the pooled and cohort-specific distributions of the age of stunting onset. Pooling across studies, the mean age of onset was 6.4 months and the median was 4.9 months. However, the largest number of children experienced stunting onset between 0-3 months, consistent with our age-specific incidence rate estimates. 
+```{r onset, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-age-onset-hist.pdf")
+```
+```{r onset-cohort, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-age-onset-hist-cohort.pdf")
+```
+
+#### 1b. Catch up growth: What is the mean number of stunting+recovery events a child has between birth and 24 months? 
+Most children (57.5%) never experienced stunting. Among those who were ever stunted, 29.7% had one stunting episode, 10.1% had two episodes, and fewer than 3% had three or more episodes. Overall this is consistent with the prevailing theory that stunting is a chronic, cumulative process rather than an acute, episodic process. 
+
+```{r nst, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-n-episodes.pdf")
+```
+
+
+#### 1b. Catch up growth: What proportion of children stunted by specific ages recover within 3 months? 
+* What proportion of children stunted at birth were no longer stunted at 3 months?
+* What proportion of children stunted at 3 months were no longer stunted at 6 months?
+* What proportion of children stunted at 6 months were no longer stunted at 9 months? 
+* What proportion of children stunted at 9 months were no longer stunted at 12 months? 
+
+We defined a new stunted episode using 2 consecutive LAZ measurements < -2 and a recovery episode as 2 consecutive LAZ measurements > -2. This figure shows the percentage of children who were stunted by the beginning of an interval who recovered by the end of the interval. We including any stunting episode (not just the first episode). The percentage who recovered from stunting was approximately 14% from 0-6 months and dropped to 8% between 6-9 months and 5% between 9-12 months. This is consistent with our finding that the point prevalence of stunting increases between birth and 24 months-- many children become stunted and do not recover. 
+
+```{r rec-pool, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-rec-pool.pdf")
+```
+
+#### 1b. Catch up growth: Cohort-specific results: What proportion of children stunted by specific ages recover within 3 months?
+When we stratified recovery by cohort, the patterns were similar overall with a higher recovery rate earlier in life. 
+```{r rec-af, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-rec-africa.pdf")
+```
+
+```{r rec-as, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-rec-asia.pdf")
+```
+
+```{r rec-la, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-rec-latamer-eur.pdf")
+```
+
+#### 1b. Catch up growth: What is the proportion of children who were ever stunted within the first 2 years of life, who are not stunted by 24 mo of age? (can we also look at beyond 24 mo?)
+We chose to focus on recovery up to 24 months because the number of observations was quite a bit lower at older ages (N measurements at 24 months=186,892, at 36 months=19,783, at 48 months=4,646, and at 60 months=1,531).
+
+We estimated the proportion of children who were no longer stunted by 24 months among children who became stunted at any age before 24 months. Pooling across studies, 9% of children who became stunted before 24 months were no longer stunted at 24 months. When stratifying by cohort, this percentage ranged from 4% to 19%. 
+
+```{r r24, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-rec24.pdf")
+```
+
+#### 1b. Catch up growth: Among those who recover from stunting by 24 months, what is the mean duration of time that they were stunted (estimated only in cohorts with at least monthly length measurement)?  
+To estimate the duration of stunting for children who experienced stunting and recovered, we subset the data to studies with monthly measurement. We rounded the duration to whole months to partially reduce the impact of censoring. The duration was one month for one third of children, two months for 15% of children, and 3 months for 11% of children. For about 5% of children, the duration rounded to zero because the child's measurements at the start and end of the stunting period were within the same month. These results suggest among children who recover from stunting by 24 months, the majority have relatively short episodes of stunting between 1 and 4 months in duration. However, we note that "recovered" is not an accurate term because about 13% of children experienced more than one stunting episode, and this figure averages across those episodes. 
+```{r stdur, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-duration.pdf")
+```
+
+
+
+#### 1b. Catch up growth: Among children who recover from stunting, what is the distribution of LAZ upon recovery? 
+For the majority of children, their first LAZ measurement at the onset of stunting was between -2 and -2.5 and their first LAZ measurement at the onset of recovery was between -1.5 and -2. These distributions suggest that changes to LAZ are incremental. The plot for the distribution upon recovery also reveals that many children not classified as stunted have an LAZ<0 and may have poor nutritional status even though they are not classified as stunted. 
+
+```{r distst, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-rec-onset-st-dist.pdf")
+```
+```{r distr, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-rec-onset-rec-dist.pdf")
+```
+
+### Objective 2: Individual, Maternal, and Household-level Characteristics associated with Stunting
+
+####Objective 2a. Age-specific point prevalence
+
+####Objective 2a. Age-specific cumulative incidence
+
+####Objective 2b. Catch up growth from birth to 24 months 
+
+####Objective 2d. Estimation of population attributable fractions for characteristics that are either (i) strongly associated with the outcome or (ii) have high prevalence in the study populations.
+
+## Value
+
+## Next steps
+- Growth velocity (Objective 1c, 2c, and 3c)
+- Adjusted risk factor analysis and risk factor modifiers (Objective 2e)
+- Intervention effects (Objective 3)
+
+## Data scientist assessment
+We are able to complete this work successfully and especially appreciate Vishak's team's help preparing the covariate dataset for this analysis. 
+
+
+
+
