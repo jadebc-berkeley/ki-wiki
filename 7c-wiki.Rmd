@@ -122,9 +122,9 @@ We included a broad set of individual-, maternal-, and household-level character
 
 - Calendar month of measurement (seasonality)*
 
-**Risk factors that we plan to include in Sprint 7D**
+**Exposures that we plan to include in Sprint 7D**
 
-We excluded the following risk factors from the current sprint and plan to include them in Sprint 7D. In the initial covariate coding using a unified set of rules for defining improved sanitation or safe water, some studies had an unrealistically high or low prevalence of WASH indicators. Additional time is needed to assess if this is a limitation of the contributed data, or to see if we need study-specific rules or to check the raw contributed data for additional informative variables. For breastfeeding practice indicators, we are still working with Vishak and his team to find the right set of variables that balance having enough information to code indicators of recommended practice with sufficient frequency of measurement across studies. We expect that we can finalize these variables to include in the adjusted risk factor analysis in June.
+We excluded the following exposures from the current sprint and plan to include them in Sprint 7D. In the initial covariate coding using a unified set of rules for defining improved sanitation or safe water, some studies had an unrealistically high or low prevalence of WASH indicators. Additional time is needed to assess if this is a limitation of the contributed data, or to see if we need study-specific rules or to check the raw contributed data for additional informative variables. For breastfeeding practice indicators, we are still working with Vishak and his team to find the right set of variables that balance having enough information to code indicators of recommended practice with sufficient frequency of measurement across studies. We expect that we can finalize these variables to include in the adjusted exposure analysis in June/July.
 
 - Improved sanitation (WHO Joint Monitoring program definition)
 - Improved water source (WHO Joint Monitoring program definition)
@@ -146,8 +146,8 @@ We excluded the following risk factors from the current sprint and plan to inclu
 
 **Stunting duration** will be estimated by counting the whole months between the first measurement of LAZ < -2 and the first measurement of LAZ $\geq$ -2 within an individual child among children who were stunted prior to age 24 months. We will only measure this outcome in studies with at least monthly measurement to reduce measurement error from interval censoring. 
 
-### Risk factor analyses
-We categorized continuous risk factors using two methods. For risk factors with pre-established standard categories, we defined categories using those standards (e.g., BMI, birthweight). For socioeconomic variables with absolute values that may vary substantially between countries, we defined variables based on country-specific quartiles of the observed distributions (e.g., household wealth). 
+### Exposure analyses
+We categorized continuous exposures using two methods. For exposures with pre-established standard categories, we defined categories using those standards (e.g., BMI, birthweight). For socioeconomic variables with absolute values that may vary substantially between countries, we defined variables based on country-specific quartiles of the observed distributions (e.g., household wealth). 
 
 We will estimated cohort-specific and pooled prevalence ratios (PRs) and cumulative incidence ratios (CIRs)  using random effects models fit with restricted maximum likelihood estimation. Unadjusted PRs and CIRs between the reference level of each exposure and comparison levels were estimated using targeted maximum likelihood estimation. This report presents unadjusted bivariate analyses; we will conduct analyses adjusting for covariates in a future sprint. We estimated influence curve-based, clustered standard errors to account for repeated measures assuming that the children were the independent units of analysis.
 
@@ -245,14 +245,14 @@ knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/
 * What proportion of children stunted at 6 months were no longer stunted at 9 months? 
 * What proportion of children stunted at 9 months were no longer stunted at 12 months? 
 
-We defined a new stunted episode using 2 consecutive LAZ measurements < -2 and a recovery episode as 2 consecutive LAZ measurements > -2. This figure shows the percentage of children who were stunted by the beginning of an interval who recovered by the end of the interval. We including any stunting episode (not just the first episode). The percentage who recovered from stunting was approximately 14% from 0-6 months and dropped to 8% between 6-9 months and 5% between 9-12 months. This is consistent with our finding that the point prevalence of stunting increases between birth and 24 months-- many children become stunted and do not recover. 
+We defined a new stunted episode using 2 consecutive LAZ measurements < -2 and a recovery episode as 2 consecutive LAZ measurements > -2. This figure shows the percentage of children who were stunted at the beginning of an age interval who recovered by the end of the interval. We including any stunting episode (not just the first episode). The percentage who recovered from stunting was 14% from 0-3 and 3-6 months; the percentage who recovered dropped to 8% between 6-9 months and 5% between 9-12 months. This suggests that children who become stunted at younger ages are slightly more likely to recover, but overall the proportion of children who recover is low and recovery becomes progessively less likely as children age.
 
 ```{r rec-pool, echo=FALSE, out.width="1000px", out.height="500px"}
 knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-rec-pool.pdf")
 ```
 
 #### 1b. Catch up growth: Cohort-specific results: What proportion of children stunted by specific ages recover within 3 months?
-When we stratified recovery by cohort, the patterns were similar overall with a higher recovery rate earlier in life. 
+When we stratified recovery by cohort, the patterns were similar overall with a higher percentage of children who recover earlier in life. 
 ```{r rec-af, echo=FALSE, out.width="1000px", out.height="500px"}
 knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-rec-africa.pdf")
 ```
@@ -266,16 +266,18 @@ knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/
 ```
 
 #### 1b. Catch up growth: What is the proportion of children who were ever stunted within the first 2 years of life, who are not stunted by 24 mo of age? (can we also look at beyond 24 mo?)
-We chose to focus on recovery up to 24 months because the number of observations was quite a bit lower at older ages (N measurements at 24 months=186,892, at 36 months=19,783, at 48 months=4,646, and at 60 months=1,531).
+We chose to focus on recovery from stunting by age 24 months because the number of observations was quite a bit lower at older ages (N measurements at 24 months=186,892, at 36 months=19,783, at 48 months=4,646, and at 60 months=1,531).
 
-We estimated the proportion of children who were no longer stunted by 24 months among children who became stunted at any age before 24 months. Pooling across studies, 9% of children who became stunted before 24 months were no longer stunted at 24 months. When stratifying by cohort, this percentage ranged from 4% to 19%. 
+We estimated the proportion of children who were no longer stunted by age 24 months among children who became stunted at any age before 24 months. Pooling across studies, 9% of children who became stunted before 24 months were no longer stunted at 24 months. When stratifying by cohort, this percentage ranged from 4% to 19%. 
 
 ```{r r24, echo=FALSE, out.width="1000px", out.height="500px"}
 knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-rec24.pdf")
 ```
 
 #### 1b. Catch up growth: Among those who recover from stunting by 24 months, what is the mean duration of time that they were stunted (estimated only in cohorts with at least monthly length measurement)?  
-To estimate the duration of stunting for children who experienced stunting and recovered, we subset the data to studies with monthly measurement. We rounded the duration to whole months to partially reduce the impact of censoring. The duration was one month for one third of children, two months for 15% of children, and 3 months for 11% of children. For about 5% of children, the duration rounded to zero because the child's measurements at the start and end of the stunting period were within the same month. These results suggest among children who recover from stunting by 24 months, the majority have relatively short episodes of stunting between 1 and 4 months in duration. However, we note that "recovered" is not an accurate term because about 13% of children experienced more than one stunting episode, and this figure averages across those episodes. 
+To estimate the duration of stunting for children who experienced stunting and recovered, we subset the data to studies with monthly measurement. We rounded the duration to whole months to partially reduce the impact of censoring. The duration was one month for one third of children, two months for 15% of children, and 3 months for 11% of children. For about 5% of children, the duration rounded to zero because the child's measurements at the start and end of the stunting period were within the same month. These results suggest among children who recover from stunting by 24 months, the majority have relatively short episodes of stunting between 1 and 4 months in duration. 
+
+We note that estimates of mean duration are only among the small minority of children who recover by age 24 months (9% of stunted children over all cohorts). Estimates of mean duration do not include the 91% of stunted children who did not recover by age 24 months.
 ```{r stdur, echo=FALSE, out.width="1000px", out.height="500px"}
 knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-duration.pdf")
 ```
@@ -284,6 +286,8 @@ knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/
 
 #### 1b. Catch up growth: Among children who recover from stunting, what is the distribution of LAZ upon recovery? 
 For the majority of children, their first LAZ measurement at the onset of stunting was between -2 and -2.5 and their first LAZ measurement at the onset of recovery was between -1.5 and -2. These distributions suggest that changes to LAZ are incremental. The plot for the distribution upon recovery also reveals that many children not classified as stunted have an LAZ<0 and may have poor nutritional status even though they are not classified as stunted. 
+
+Taken together, the distribution of LAZ scores among children who are stunted and who recover is consistent with an overall continuous distribution of LAZ, where -2 is simply a cutoff within that distribution.
 
 ```{r distst, echo=FALSE, out.width="1000px", out.height="500px"}
 knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/stunting-rec-onset-st-dist.pdf")
