@@ -298,13 +298,54 @@ knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/
 
 ### Objective 2: Individual, Maternal, and Household-level Characteristics associated with Stunting
 
-####Objective 2a. Age-specific point prevalence
+####Objective 2a. Relative risks for age-specific cumulative incidence
+We are including individual plots for Objective 2a for cumulative incidence here since we believe it is the measure that is most novel (prior studies measured point prevalence). Overall the patterns are similar across RRs for incidence and prevalence. A document containing all plots for the risk factor analyses, including relative risks for incidence, prevalence and catchup growth (2a and 2b) and population attributable risks (2d) are available here **(ANDREW PLEASE ADD LINK TO HTML FILE).**
 
-####Objective 2a. Age-specific cumulative incidence
-
-####Objective 2b. Catch up growth from birth to 24 months 
-
-####Objective 2d. Estimation of population attributable fractions for characteristics that are either (i) strongly associated with the outcome or (ii) have high prevalence in the study populations.
+**Child characteristics**
+```{r cibw, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/ci-bw.png")
+```
+```{r cidel, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/ci-del.png")
+```
+```{r civ, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/ci-vag.png")
+```
+```{r cigest, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/ci-gest.png")
+```
+```{r cis, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/ci-sex.png")
+```
+```{r cise, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/ci-stenr.png")
+```
+**Maternal characteristics**
+```{r cima, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/ci-matage.png")
+```
+```{r cimbmi, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/ci-matbmi.png")
+```
+```{r cimt, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/ci-matht.png")
+```
+```{r cimomedu, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/ci-momedu.png")
+```
+```{r cipar, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/ci-parity.png")
+```
+**Household characteristics**
+```{r ciw, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/ci-wealth.png")
+```
+```{r cifs, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/ci-foodsec.png")
+```
+```{r ci5, echo=FALSE, out.width="1000px", out.height="500px"}
+knitr::include_graphics("/Users/jadederong/Dropbox/HBGD/HBGDki figures/Stunting/7c version/ci-u5.png")
+```
 
 ## Value
 
